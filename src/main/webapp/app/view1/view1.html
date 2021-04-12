@@ -1,0 +1,81 @@
+<div class="newDate">
+    <form class="newDateForm">
+        <h3>Add date</h3>
+        <label>Date</label>
+        <input type="date" ng-model="newDateInput"/>
+        <label>Time</label>
+        <input type="time" ng-model="newTimeInput"/>
+        <label>Budget</label>
+        <input type="number" ng-model="newBudgetInput"/>
+        <button type="submit" ng-click="addDate()" ng-disabled="!newDateInput || !newTimeInput || !newBudgetInput">Add</button>
+    </form>
+    <div ng-repeat="d in budgetHistory" class="input-container">
+        <div>
+            <span>
+                <span class="listLabel">Date</span> {{ getDate(d.date) }}
+            </span>
+            <span>
+                <span class="listLabel">Time</span> {{ getTime(d.date) }}
+            </span>
+            <span>
+                <span class="listLabel">Budget</span> {{ d.budget }}
+            </span>
+            <span>
+                <button ng-click="deleteInput(d)">Delete</button>
+            </span>
+        </div>
+    </div>
+    <button ng-click="processData()">ProcessData</button>
+</div>
+
+
+
+<div class="container">
+    <div class="table-col">
+        <table ng-if="showTable" class="table">
+            <thead>
+            <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in data">
+                <td ng-bind="checkDate(getDate(x.data)) ? getDate(x.data) : ''">{{ getDate(x.data)}}</td>
+                <td>{{ x.cost }}</td>
+                <td ng-if="getTime(x.data)!='00:00:00'">{{ getTime(x.data)}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-col">
+        <table ng-if="showTable" class="table">
+            <thead>
+            <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Buget</th>
+                <th scope="col">Cost</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in bugetMaxList">
+                <td>{{ getDate(x.data) }}</td>
+                <td>{{ x.budget }}</td>
+                <td>{{ x.costs }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+

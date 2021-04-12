@@ -1,0 +1,54 @@
+/* app css stylesheet */
+body {
+  margin: 30px;
+}
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.container {
+  display: flex;
+}
+
+.table-col {
+  width: 50%;
+}
+
+.newDate {
+  border: 2px solid black;
+  width: 50%;
+  padding: 20px;
+  margin: 20px 0px;
+}
+.newDate h3 {
+  margin: 0;
+}
+.newDateForm {
+  padding: 10px 0px;
+}
+.listLabel {
+  font-weight: 700;
+}
+.input-container {
+  padding: 10px 0px;
+}
